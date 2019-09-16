@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Book } from './../models/book';
@@ -12,7 +12,7 @@ export class BooksService {
   readonly SHELF_AMOUNT = 5;
   books: Observable< Book[]>;
 
-  constructor(@Inject(DatabaseService) private database: DatabaseService) {
+  constructor( private database: DatabaseService) {
     this.books = database.getAll();
   }
 

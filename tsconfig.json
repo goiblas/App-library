@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // https://github.com/thymikee/jest-preset-angular/issues/288
+    "emitDecoratorMetadata": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

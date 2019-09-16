@@ -1,16 +1,13 @@
 import { BooksService } from './../../services/books.service';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  constructor( @Inject(BooksService) private booksService: BooksService  ) { }
-
-  ngOnInit() {
-  }
+  constructor( private booksService: BooksService  ) { }
 
 }
