@@ -2,7 +2,7 @@
 
   <h2>Añadir un nuevo libro</h2>
 
-  <form [formGroup]="formNewBook" (submit)="submit()" novalidate>
+  <form [formGroup]="addForm" (ngSubmit)="submit()" novalidate>
 
       <mat-form-field style="width: 100%;">
         <input matInput placeholder="Título" formControlName="title">
