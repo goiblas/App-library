@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './add.component.html',
 })
 export class AddComponent implements OnInit {
-  formNewBook: FormGroup;
+  addForm: FormGroup;
   constructor(
     private booksService: BooksService,
     private formBuilder: FormBuilder,
@@ -16,7 +16,7 @@ export class AddComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.formNewBook = this.formBuilder.group({
+    this.addForm = this.formBuilder.group({
       title: ['', [Validators.required]],
       author: ['', [Validators.required]],
       width: [1, [Validators.min(1), Validators.max(500)]]
@@ -24,11 +24,11 @@ export class AddComponent implements OnInit {
   }
 
   submit() {
-    if (this.formNewBook.invalid) { return; }
+    if (this.addForm.invalid) { return; }
 
-    const title = this.formNewBook.get('title').value;
-    const author = this.formNewBook.get('author').value;
-    const width = this.formNewBook.get('width').value;
+    const title = this.addForm.get('title').value;
+    const author = this.addForm.get('author').value;
+    const width = this.addForm.get('width').value;
     const id = this.booksService.getId();
 
     const book = {
@@ -36,7 +36,7 @@ export class AddComponent implements OnInit {
     };
 
     this.booksService.add(book);
-    this.formNewBook.reset();
+    this.addForm.reset();
     this.router.navigate(['/']);
   }
 }
