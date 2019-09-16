@@ -1,35 +1,48 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule, MatToolbarModule } from '@angular/material';
 
 describe('AppComponent', () => {
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        BrowserModule,
+        RouterTestingModule,
+        MatButtonModule,
+        MatToolbarModule,
       ],
       declarations: [
         AppComponent
-      ],
+      ]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  let component: AppComponent;
+  let fixture: ComponentFixture< AppComponent>;
+  let compiled: HTMLElement;
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+    component = fixture.componentInstance;
+  });
+
+  it('should create app', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'app-library'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app-library');
+  it('should have title APP Library', () => {
+    const title = compiled.querySelector('h1 a').textContent;
+    expect(title).toContain('APP Library');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('app-library app is running!');
+  it('should have add button', () => {
+    const title = compiled.querySelector('#add-button').textContent;
+    expect(title).toContain('Añadir');
   });
 });

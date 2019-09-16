@@ -1,0 +1,11 @@
+<ul class="wrapper">
+  <li *ngFor="let book of booksService.books | async">
+
+    <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title> {{ book.title }} - {{ book.author }} </mat-card-title>
+          <mat-card-subtitle>Estante {{book.position.y}} - Posicion {{book.position.x}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+  </li>
+</ul>

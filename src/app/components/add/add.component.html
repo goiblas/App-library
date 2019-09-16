@@ -1,0 +1,22 @@
+<div style="max-width: 620px; margin: 4vh auto;">
+
+  <h2>Añadir un nuevo libro</h2>
+
+  <form [formGroup]="formNewBook" (submit)="submit()" novalidate>
+
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="Título" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <input matInput placeholder="Autor" formControlName="author">
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <input type="number" matInput placeholder="Anchura en milímentros" formControlName="width">
+      </mat-form-field>
+
+    <button mat-raised-button type="submit">Enviar</button>
+  </form>
+
+</div>

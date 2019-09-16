@@ -1,0 +1,13 @@
+.wrapper {
+  max-width: 620px;
+  margin: 8vh auto 2vh;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0 0 .5rem;
+  }
+  mat-card-subtitle {
+    margin-bottom: 0;
+  }
+}
